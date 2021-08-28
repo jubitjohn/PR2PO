@@ -1,0 +1,11 @@
+//PR2PO Application
+//Command driven procurement Application
+//Create a purchase requisition
+//View purchase details
+//convert purchase requisition into purchase order
+
+#include<iostream>
+#include<conio.h>
+#include<string.h>
+#include<stdlib>
+#include<fstream>

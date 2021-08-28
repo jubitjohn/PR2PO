@@ -3,12 +3,12 @@
 
 
 
-Requisition#: 1				Issue Date :Sat Aug 28 20:04:59 2021
+Requisition#: 1				Issue Date :Sat Aug 28 20:15:34 2021
 
 
-Supplier : SKS INC
+Supplier : KC spare parts Ldt.
 
-Delivery Date: 2
+Delivery Date: 12
 
 ------------------------------------------------------------------------------
                       ** Line Items ** 
@@ -16,7 +16,7 @@ Delivery Date: 2
 Item_code		Quantity			Price			Total
 _________		_______			_____			_____
 
- 2			3			 2.25			6.75
+ 15			2			 87			174
 
 
 
@@ -35,4 +35,4 @@ Standard Terms And Conditions:
 
 
 
- Authorised signature: 							 Total:6.75
+ Authorised signature: 							 Total:174

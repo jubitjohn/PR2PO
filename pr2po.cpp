@@ -33,7 +33,7 @@ public:
 
 void requisition ::get_data()
 {
-    system("cls");
+    system("CLS");
     req_no++;
     cout << "Product Item code";
     cin >> item_code;
@@ -41,9 +41,6 @@ void requisition ::get_data()
     cin >> qty;
     cout << "Delivery date : ";
     cin >> delivery_date;
-    cin.clear();
-    cin.ignore(1000, '\n');
-    getline(cin, delivery_date);
 }
 // definition of the static data member
 int requisition ::req_no;
@@ -51,7 +48,7 @@ int requisition ::req_no;
 // funtion for displaying requisition details
 void requisition ::display()
 {
-    system("cls");
+    system("CLS");
     cout << "Requisition No: \n"
          << req_no;
     cout << "\nProduct Item Code : \n"
@@ -137,7 +134,7 @@ int main()
     //Displaying a menu to accept user commands
     while (1)
     {
-        system("cls");
+        system("CLS");
         cout << "PR2PO";
         cout << "______";
         cout << "\n1- Create New Requisition\n";

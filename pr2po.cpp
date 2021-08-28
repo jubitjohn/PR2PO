@@ -124,7 +124,7 @@ void generate(requisition r, po p)
     fout.close();
 }
 
-void main()
+int main()
 {
 
     requisition r;
@@ -150,7 +150,7 @@ void main()
             flag = 't'; /* code */
             break;
         case ('2'):
-            if (flag = 'f')
+            if (flag == 'f')
             {
                 cout << "Requisition details not yet entered! Press any key to continue"; /* code */
             }
@@ -165,10 +165,10 @@ void main()
             break;
         case ('4'):
             exit(1);
-            /* code */
             break;
 
         default:
+
             cout << "Invalid Choice! Press any key to continue..";
 
             break;

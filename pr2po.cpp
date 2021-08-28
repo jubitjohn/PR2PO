@@ -52,9 +52,12 @@ int requisition ::req_no;
 void requisition ::display()
 {
     system("cls");
-    cout << "Requisition No: " << req_no;
-    cout << "/nProduct Item Code : " << item_code;
-    cout << "/nDelivery date: " << delivery_date;
+    cout << "Requisition No: \n"
+         << req_no;
+    cout << "\nProduct Item Code : \n"
+         << item_code;
+    cout << "\nDelivery date: \n"
+         << delivery_date;
 }
 
 class po
@@ -84,25 +87,25 @@ void generate(requisition r, po p)
     //Opening  the current_PO.txt file in which PO details are stored
     fout.open("Current_PO.txt");
     //generating the PO and storing it in  the Current_PO.txt file in the formatted manner
-    fout << "\t\t\t  Purchase Order# : " << p.po_no << "/n";
-    fout << "\t\t\t______________________/n/n";
-    fout << "Requisition#: " << r.req_no << "\t\t\t\tIssue Date :" << dt << "/n/n";
+    fout << "\t\t\t  Purchase Order# : " << p.po_no << "\n";
+    fout << "\t\t\t______________________\n\n\n\n";
+    fout << "Requisition#: " << r.req_no << "\t\t\t\tIssue Date :" << dt << "\n\n";
 
     if (r.item_code >= 1 && r.item_code <= 10)
         fout << "Supplier : "
-             << "SKS INC/n/n";
+             << "SKS INC\n\n";
     else if (r.item_code >= 11 && r.item_code <= 20)
         fout << "Supplier : "
-             << "KC spare parts Ldt./n/n";
+             << "KC spare parts Ldt.\n\n";
     else
         fout << "Suppiler : "
-             << "Other(_______________)/n/n";
-    fout << "Delivery Date: " << r.delivery_date << "/n/n";
-    fout << "------------------------------------------------------------------------------/n";
-    fout << "                      ** Line Items ** /n";
-    fout << "------------------------------------------------------------------------------/n";
-    fout << "Item_code\t\tQuantiy\t\tPrice\t\tTotal\n";
-    fout << "_________\t\t_______\t\t_____\t\t_____\n\n";
+             << "Other(_______________)\n";
+    fout << "Delivery Date: " << r.delivery_date << "\n\n";
+    fout << "------------------------------------------------------------------------------\n";
+    fout << "                      ** Line Items ** \n";
+    fout << "------------------------------------------------------------------------------\n";
+    fout << "Item_code\t\tQuantity\t\t\tPrice\t\t\tTotal\n";
+    fout << "_________\t\t_______\t\t\t_____\t\t\t_____\n\n";
     fout << " " << r.item_code << "\t\t\t" << r.qty << "\t\t\t";
     if (r.item_code >= 1 && r.item_code <= 20)
     {
@@ -120,7 +123,7 @@ void generate(requisition r, po p)
         fout << line << "\n";
     }
     fin.close();
-    fout << "\n\n\\n\n Authorized signature: \t\t\t\t\t\\t Total: _ _ _ ";
+    fout << "\n\n\n\n Authorised signature: \t\t\t\t\t\t\t Total:" << price_list[r.item_code - 1] * r.qty;
     fout.close();
 }
 
@@ -128,6 +131,7 @@ int main()
 {
 
     requisition r;
+
     char flag = 'f';
     char ch;
     //Displaying a menu to accept user commands
@@ -136,42 +140,54 @@ int main()
         system("cls");
         cout << "PR2PO";
         cout << "______";
-        cout << "1- Create New Requisition";
-        cout << "2- Display Requisition";
-        cout << "3- Generate PO";
-        cout << "4- Exit";
-        cout << "Select an option by typing the numerical code:";
+        cout << "\n1- Create New Requisition\n";
+        cout << "2- Display Requisition\n";
+        cout << "3- Generate PO\n";
+        cout << "4- Exit\n";
+        cout << "Select an option by typing the numerical code:\n";
         cin >> ch;
-        switch (ch)
 
+        switch (ch)
         {
-        case ('1'):
+        case '1':
+        {
             r.get_data();
             flag = 't'; /* code */
             break;
-        case ('2'):
+        }
+
+        case '2':
+        {
             if (flag == 'f')
             {
                 cout << "Requisition details not yet entered! Press any key to continue"; /* code */
             }
             else
+            {
                 r.display();
+            }
             break;
-        case ('3'):
+        }
+
+        case '3':
+        {
             po p;
             generate(r, p);
             cout << "PR has been converted into a PO. You can view the Current_PO.txt file to view the generated PQ and take its print out"; /* code */
-
             break;
-        case ('4'):
+        }
+        case '4':
+        {
             exit(1);
             break;
-
+        }
         default:
+        {
 
             cout << "Invalid Choice! Press any key to continue..";
 
             break;
         }
+        };
     }
 }
